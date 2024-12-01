@@ -3,6 +3,24 @@ from pathlib import Path
 import time
 import streamlit as st
 import pandas as pd
+import sys
+from pathlib import Path
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parent / "src"))
+
+
+# Add the 'src' directory to the Python path
+sys.path.append(str(Path(__file__).resolve().parent / "src"))
+
+# import kagglehub
+
+# # Download latest version
+# path = kagglehub.dataset_download("yasserh/titanic-dataset")
+
+# print("Path to dataset files:", path)
+
 from titanic.pipeline.prediction import PredictionPipeline
 from titanic.utils.common import read_yaml
 
@@ -50,7 +68,9 @@ def main():
             os.system("dvc repro")
             time.sleep(5)
         st.write("Model trained successfully")
-        content = read_yaml(Path('metrics.yaml'))
+        content = read_yaml(Path(r'D:\1\Titanic_Pipeline_Project\metrics.yaml'))
+
+
 
         st.write(f"The accuracy of the model is {float(content.accuracy)*100}")
 
